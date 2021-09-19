@@ -37,11 +37,11 @@ def main():
         'Ti': 'A drink with jam and bread'
     }
 
-    for i in args.str:
-        if i in song.keys():
-            print(f'{i}, {song[i]}')
+    for k in args.str:
+        if k in song.keys():
+            print(f'{k}, {song[k]}')
         else:
-            print(f'''I don't know "{i}"''')
+            print(f'''I don't know "{k}"''')
 
 
 # --------------------------------------------------
