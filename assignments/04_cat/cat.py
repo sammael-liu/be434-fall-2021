@@ -41,7 +41,7 @@ def main():
         for line in fh:
             line_num += 1
             if args.number:
-                print(f'     {line_num}\t{line.rstrip()}')
+                print(f'     {line_num} {line.rstrip()}')
             else:
                 print(line.rstrip())
 
