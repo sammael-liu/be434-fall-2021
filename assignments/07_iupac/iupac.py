@@ -61,7 +61,7 @@ def main():
     for seqs in args.seq:
         new = ''
         for chars in seqs:
-            new += iupac.get(chars)
+            new += iupac.get(chars, '[-]')
         print('{} {}'.format(seqs, new), file=args.outfile)
     if args.outfile != sys.stdout:
         print(f'Done, see output in "{args.outfile.name}"')
