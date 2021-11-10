@@ -30,34 +30,19 @@ def main():
 
     args = get_args()
 
-    lines = []
+    seqs = []
     for line in args.file:
-        lines.append(line.split())
+        seqs.extend(line.split())
         print(line, end='')
 
-    reference = ''.join(lines[0])
+    check = ''
+    for i in range(len(seqs[0])):
+        bases = []
+        for seq in seqs:
+            bases += seq[i]
 
-    all_result = []
-    for comp in lines[1:]:
-        result = ''
-        for i, loc in enumerate(reference):
-            if loc == ''.join(comp)[i]:
-                result += '|'
-            else:
-                result += 'X'
-        all_result.append(result)
-
-    if len(lines) == 2:
-        print(result)
-
-    if len(lines) == 3:
-        result3 = ''
-        for j, loc3 in enumerate(''.join(all_result[0])):
-            if loc3 == ''.join(all_result[1])[j]:
-                result3 += loc3
-            else:
-                result3 += 'X'
-        print(result3)
+        check += '|' if all(element == bases[0] for element in bases) else 'X'
+    print(check)
 
 
 # --------------------------------------------------
